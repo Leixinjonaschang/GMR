@@ -217,7 +217,11 @@ class KinematicsModel:
         body_rot = [None] * self.num_joint
         
         body_pos[0] = root_pos
-        body_rot[0] = root_rot
+        # Convert root_rot from wxyz to xyzw format for torch_utils compatibility
+        # root_rot input is wxyz: [w, x, y, z]
+        # torch_utils expects xyzw: [x, y, z, w]
+        root_rot_xyzw = torch.stack([root_rot[..., 1], root_rot[..., 2], root_rot[..., 3], root_rot[..., 0]], dim=-1)
+        body_rot[0] = root_rot_xyzw
         
         for j in range(1, self.num_joint):
             j_rot = joint_rot[..., j-1, :]
