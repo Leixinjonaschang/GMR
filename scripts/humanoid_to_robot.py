@@ -2,7 +2,7 @@ import argparse
 import pathlib
 import time
 from general_motion_retargeting import GeneralMotionRetargeting as GMR
-from general_motion_retargeting import RobotMotionViewer
+from general_motion_retargeting import SkeletonRobotViewer as RobotMotionViewer
 import general_motion_retargeting.torch_utils as torch_utils
 from rich import print
 from tqdm import tqdm
