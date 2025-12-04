@@ -4,4 +4,4 @@ from .motion_retarget import GeneralMotionRetargeting
 from .robot_motion_viewer import RobotMotionViewer
 from .data_loader import load_robot_motion
 from .kinematics_model import KinematicsModel
-
+from .skeleton_robot_viewer import SkeletonRobotViewer
